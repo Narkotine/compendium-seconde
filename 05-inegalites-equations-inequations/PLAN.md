@@ -25,3 +25,10 @@
 ## Pour aller plus loin (★★★, facultatif)
 
 - Inégalité entre moyennes (★★★)
+
+## Passerelles vers la première (★★★, facultatif, HORS PROGRAMME DE SECONDE)
+
+> Chaque passerelle est signalée dans le cours par « *Passerelle vers la première (★★★, hors programme de seconde).* », placée après le cœur du chapitre, sans exercice obligatoire (au plus 2 exercices ★★★ dans la série atypique).
+
+- Résoudre ax² + bx = 0 par x(ax + b) = 0 : c’est ainsi qu’en 1re on trouve l’axe de symétrie d’une parabole en résolvant f(x) = c — 1re : modélisation quadratique
+- Seuil linéaire : plus petit entier n tel que a + n r ⩾ S (inéquation puis entier suivant) — 1re : suites arithmétiques, problème de seuil

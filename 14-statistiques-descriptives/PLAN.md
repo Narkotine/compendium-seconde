@@ -23,3 +23,10 @@
 ## Pour aller plus loin (★★★, facultatif)
 
 - (rien de prévu)
+
+## Passerelles vers la première (★★★, facultatif, HORS PROGRAMME DE SECONDE)
+
+> Chaque passerelle est signalée dans le cours par « *Passerelle vers la première (★★★, hors programme de seconde).* », placée après le cœur du chapitre, sans exercice obligatoire (au plus 2 exercices ★★★ dans la série atypique).
+
+- Série à deux variables quantitatives : nuage de points, point moyen (x̄ ; ȳ), droite passant par le point moyen (lien chapitre 08) — 1re générale et techno : ajustement affine
+- Interpoler, extrapoler avec une droite donnée et discuter la pertinence du modèle — 1re

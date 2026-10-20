@@ -31,6 +31,25 @@ Principes pédagogiques conservés : on génère **la réponse d’abord** puis 
 | **Code Python** : prédire l’affichage, compléter un trou, suivre les variables d’une boucle | 18 + algorithmes des autres chapitres | pas d’exécution dans l’appli au départ (Pyodide ≈ 10 Mo hors ligne) ; programmes vérifiés au build |
 | **Expression** (forme développée/factorisée) | 04 | égalité testée en arithmétique exacte sur plusieurs valeurs + contrôle de la forme demandée |
 
+## 2 bis. Mode « Rituels » : entraînement à l’épreuve anticipée (validé le 20/10/2026)
+
+Objectif : entretenir les automatismes de seconde **et** préparer la partie 1 de l’épreuve anticipée de mathématiques de première (note de service du 11-9-2026, session 2028 : 6 points sur 20, « questions à réponses courtes », calculatrice interdite). Contenu de référence : `19-fiche-automatismes/` (et `COMPARAISON-PREMIERE.md`).
+
+| Règle | Détail |
+|---|---|
+| Format | série de **10 questions flash** (réglable 5 / 10 / 20), **réponse courte saisie** : nombre, fraction, expression, intervalle, ensemble de solutions. **Pas de QCM** (comme l’épreuve à partir de 2028) |
+| Calculatrice | **masquée** dans tout le mode (ni bouton, ni clavier « calculatrice », ni historique) ; le clavier de saisie reste, sans touche de calcul |
+| Chronomètre | affiché, par question (cible indicative 30 à 60 s selon la question) et pour la série ; **pas d’échec au temps** : le temps est noté, la réponse reste acceptée ; option « sans chronomètre » dans les réglages |
+| Rubriques | les 7 rubriques officielles de la partie « Automatismes » de 2de : Calcul numérique et algébrique · Proportions et pourcentages · Évolutions et variations · Fonctions et représentations · Géométrie · Statistiques · Probabilités. Série « mélangée » par défaut (le programme demande de ne pas traiter les blocs l’un après l’autre) ou une rubrique choisie |
+| Étiquette de niveau | chaque générateur de question porte un champ `niveau` valant `2de` ou `1re` : **[2de]** = libellé de la liste de seconde ; **[1re]** = automatisme de la liste de première déjà préparé en seconde (taux réciproque, évolutions successives, signe d’une forme factorisée de degré 2, coefficient directeur par deux points, $P_A(B)$ et $P_B(A)$…). Filtre « seconde seulement / avec la première » ; un futur ajout d’automatismes de première ne change pas l’architecture |
+| Correction | immédiate après chaque réponse : réponse attendue + **réflexe rédigé** en une ou deux phrases (style des corrigés de la fiche), message d’erreur ciblé si l’erreur est reconnue (« $+10\,\%$ puis $-10\,\%$ ne s’annulent pas », « tu as oublié de changer le sens de l’inégalité ») |
+| Bilan | score, temps total, réussite par rubrique ; les questions ratées reviennent dans la série suivante (file de révision locale) |
+| Stockage | `compendium-seconde.rituels` (historique de séries, réussite par rubrique et niveau) ; rien hors de l’appareil |
+| Nombres | générés « propres » et calculables de tête (petits entiers, fractions simples, pourcentages ronds) ; aucun résultat qui exigerait la calculatrice |
+| Tests | propriétés sur 2 000 graines par générateur : réponse calculable sans calculatrice (bornes sur les entiers et dénominateurs), unicité de la réponse attendue, analyse de saisie ; e2e : la calculatrice est absente dans le mode, le chronomètre démarre et s’arrête, l’étiquette [1re] filtre bien |
+
+Générateurs (identifiants provisoires) : `rit-calcul` (fractions, puissances, écritures, ordres de grandeur, conversions, développer/factoriser, équations simples, isoler), `rit-proportions`, `rit-evolutions` (dont [1re] : valeur finale/initiale, taux, successives, réciproque), `rit-fonctions` (image/antécédent sur courbe, équation de courbe, affine ; [1re] : coefficient directeur, droite, signe d’un produit, produit nul), `rit-geometrie`, `rit-stats`, `rit-probas` (dont [1re] : tableau croisé, arbre, $P(A \cap B)$ / $P_A(B)$ / $P_B(A)$).
+
 ## 3. Extensions du moteur
 
 - `surd.ts` : nombres de la forme $a + b\sqrt{n}$ exacts (chapitres 03, 07 normes, 12).
@@ -61,8 +80,9 @@ Principes pédagogiques conservés : on génère **la réponse d’abord** puis 
 | 16 | `equiprobabilite`, `conditionnelle-tableau`, `arbre`, `chemin`, `inversion` ($P_A(B)$ / $P_B(A)$, tests), `lgn` (simulation lue), `erreur` | arbre, tableau, pavé |
 | 17 | `appartenance-inclusion`, `operations-ensembles`, `negation`, `reciproque-contraposee`, `contre-exemple`, `quantificateurs` | cartes, QCM argumenté |
 | 18 | `predire`, `completer`, `types`, `trace-boucle`, `corriger` | pavé, tableau de suivi, cartes |
+| 19 | mode Rituels (§ 2 bis) : `rit-calcul`, `rit-proportions`, `rit-evolutions`, `rit-fonctions`, `rit-geometrie`, `rit-stats`, `rit-probas` | réponse courte (pavé, expression, intervalle), sans calculatrice |
 
-Calculatrice : même politique qu’au collège (désactivée quand l’exercice porte sur le calcul lui-même : 01 `encadrer`, 03, 04, 05 `equation`… ; proposée ailleurs).
+Calculatrice : toujours masquée en mode Rituels (§ 2 bis). Ailleurs, même politique qu’au collège (désactivée quand l’exercice porte sur le calcul lui-même : 01 `encadrer`, 03, 04, 05 `equation`… ; proposée ailleurs).
 
 ## 5. Étapes proposées
 
@@ -72,7 +92,14 @@ Calculatrice : même politique qu’au collège (désactivée quand l’exercice
 4. Entraînement : chapitre 01 en pilote (saisie intervalle + droite), puis chapitre par chapitre avec tests de propriétés et e2e.
 5. Publication `gh-pages` seulement sur accord explicite.
 
-## 6. Questions à Nguhma
+## 6. Décisions (20 octobre 2026)
+
+Validé par Nguhma : programme 2026 ; suggestions 1 à 6 de `COMPARAISON-PREMIERE.md` (Rituels orientés épreuve anticipée, fiche Automatismes, chapitres 11, 13, 15, 16 réutilisables en première avec « Et en première ? », passerelles ★★★ hors programme, chapitres 17 et 18 à part, exigence de rédaction). Refusé pour l’instant : projet « première ».
+
+Choix par défaut (questions restées ouvertes, modifiables) : intervalles $\left[a\,;b\right]$ ; coordonnées $(x\,;y)$ ; environ 45 exercices écrits par chapitre ; **Python sans exécution** dans l’appli (prédire, compléter, suivre les variables ; programmes vérifiés au build) ; nom provisoire « Maths Seconde » ; démonstrations rédigées en entier dans le cours, **repliables** dans l’appli. Toujours ouverts : renvois vers le compendium collège, découpage en 18 chapitres, longueur du pilote, couleur et icône.
+
+Historique des questions posées le 20/10/2026 :
+
 
 1. Programme : on suit bien le **programme 2026** (BO n° 14), et non celui de 2019 ?
 2. Chapitres 17 (logique) et 18 (Python) en chapitres de référence autonomes, en plus des notions vues en situation ? Ou seulement intégrés aux autres chapitres ?

@@ -659,6 +659,7 @@ On renvoie toujours « le plus grand moins le plus petit », qui est positif. Co
 - **Chapitres 9 et 12** (fonctions) : ensemble de définition écrit avec des intervalles ; fonction valeur absolue.
 - **Chapitre 17** (ensembles et logique) : $\in$, $\subset$, $\cap$, $\cup$, $\varnothing$ ; raisonnement par l’absurde et contre-exemple.
 - **Chapitre 18** (Python) : boucle `while` et algorithme de balayage du § 4.2.
+- **Et en première ?** Les intervalles servent partout : ensembles de solutions, intervalles où une fonction est croissante, seuils. En première technologique, on compte les fréquences situées dans un intervalle $\left[p - ks\,;p + ks\right]$ : c’est exactement un intervalle de centre $p$ et de rayon $ks$ (§ 6.2). Les écritures décimale, fractionnaire et en pourcentage, les ordres de grandeur et les arrondis restent des automatismes de première, évalués sans calculatrice.
 
 ---
 
@@ -677,4 +678,4 @@ On renvoie toujours « le plus grand moins le plus petit », qui est positif. Co
 
 ---
 
-*Version v0.1 — chapitre pilote du compendium seconde (20 octobre 2026), rédigé au standard du compendium collège v0.3 : 9 exemples guidés, 8 figures SVG (générateur `outils/figures/gen-01-nombres-reels.py`), 47 exercices (30 types, 17 atypiques), 100 % corrigés ; résultats recalculés par `outils/relecture/check-01.py`.*
+*Version v0.1.1 (rubrique « Et en première ? » ajoutée au § 11) — chapitre pilote du compendium seconde (20 octobre 2026), rédigé au standard du compendium collège v0.3 : 9 exemples guidés, 8 figures SVG (générateur `outils/figures/gen-01-nombres-reels.py`), 47 exercices (30 types, 17 atypiques), 100 % corrigés ; résultats recalculés par `outils/relecture/check-01.py`.*

@@ -19,7 +19,7 @@ Découpage par sujet, numéroté comme au collège. Chaque dossier contient un `
 
 | Thème (navigation) | Dossier | Chapitre | Statut |
 |---|---|---|---|
-| Nombres et calculs | `01-nombres-reels-intervalles/` | Nombres réels et intervalles | **pilote v0.1** |
+| Nombres et calculs | `01-nombres-reels-intervalles/` | Nombres réels et intervalles | **pilote v0.1.1** |
 | Nombres et calculs | `02-arithmetique/` | Arithmétique : multiples, diviseurs, parité | plan |
 | Nombres et calculs | `03-puissances-racines/` | Puissances, racines carrées, calcul numérique | plan |
 | Algèbre | `04-calcul-litteral/` | Calcul littéral et expressions algébriques | plan |
@@ -37,8 +37,13 @@ Découpage par sujet, numéroté comme au collège. Chaque dossier contient un `
 | Données et hasard | `16-probabilites-conditionnelles/` | Probabilités et probabilités conditionnelles | plan |
 | Outils transversaux | `17-ensembles-et-logique/` | Vocabulaire ensembliste et logique | plan |
 | Outils transversaux | `18-algorithmique-python/` | Algorithmique et programmation en Python | plan |
+| Outils transversaux | `19-fiche-automatismes/` | Fiche Automatismes (rubriques officielles, colonne « encore évalué en 1re », 51 questions flash) | **rédigée v0.1** |
 
-Les « Automatismes » (calcul, information chiffrée, représentations graphiques) ne forment pas un chapitre : ils sont prévus comme mode « Rituels » de l’appli (décision à confirmer, voir `PLAN-APPLI.md`). Les PLAN.md sont générés par `outils/plans-chapitres.py` (qui ne touche jamais aux cours).
+Les « Automatismes » ne forment pas un chapitre de cours : ils ont une **fiche** (`19-fiche-automatismes/`, rubriques officielles, colonne « encore évalué en 1re », questions flash étiquetées [2de] / [1re]) et un mode **« Rituels »** dans l’appli, conçu comme entraînement à l’épreuve anticipée de première (`PLAN-APPLI.md`, § 2 bis). Décision du 20/10/2026.
+
+**Chapitres 17 et 18 gardés à part (décision du 20/10/2026).** Le programme veut que logique et Python soient travaillés en situation dans tous les chapitres : c’est le cas (renvois). Les chapitres 17 et 18 sont en plus des **chapitres de référence** autonomes ; le tronc commun de 1re technologique reprend presque mot pour mot ces deux parties, ils resserviront donc tels quels (`COMPARAISON-PREMIERE.md`, § 3).
+
+**Lien avec la première.** `COMPARAISON-PREMIERE.md` compare ce programme aux programmes de première hors spécialité (BO n° 14 du 2 avril 2026). Conséquences dans les `PLAN.md` : rubrique « Et en première ? » et lisibilité autonome pour les chapitres 11, 13, 15, 16 ; passerelles ★★★ hors programme pour 03, 05, 09, 11, 12, 13, 14, 16, 18. Les PLAN.md sont générés par `outils/plans-chapitres.py` (qui ne touche jamais aux cours).
 
 ## 3. Format d’un chapitre (repris du collège)
 
@@ -79,6 +84,16 @@ Celles du collège restent valables (`$…$`, `$$…$$`, `{,}` pour la virgule, 
 | Vecteurs (prévu) | `\overrightarrow{AB}`, `\vec{u}` ; coordonnées `\vec{u}\begin{pmatrix}x\\y\end{pmatrix}` | à valider (§ 8) |
 | Probabilité conditionnelle (prévu) | `P_A(B)`, `\overline{A}` | |
 
+### Exigence de rédaction (corrigés)
+
+Les corrigés sont **rédigés** : phrases complètes, méthode du cours nommée, statut de chaque étape (« on factorise », « un produit est nul si et seulement si… », « donc »), conclusion qui répond à la question avec l’unité. Pas de suite de calculs sans mots, jamais « vérifie avec un nombre » comme seule justification. Raison supplémentaire : à l’épreuve anticipée de mathématiques de première (note de service du 11-9-2026), la **maîtrise de la langue compte pour 2 points sur 20** (orthographe, syntaxe, capacité à formuler un raisonnement, vocabulaire juste). Chaque chapitre contient au moins une rédaction modèle **sans calculatrice**.
+
+### Rubriques liées à la première
+
+- **« Et en première ? »** (chapitres 11, 13, 15, 16, et le pilote 01) : 5 à 8 lignes à la fin de « Liens avec les autres chapitres », sans exercice, avec ce que deviennent les notions en 1re générale (maths intégrées) et technologique.
+- **Passerelles** : paragraphe titré « *Passerelle vers la première (★★★, hors programme de seconde).* », placé après le cœur du chapitre ; au plus 2 exercices ★★★ dans la série atypique. Jamais exigé dans la fiche-synthèse ni dans « À retenir ».
+- **Notations de première** employées dès la seconde quand elles existent : $P(A \cap B)$, $P_A(B)$, $\overline{A}$, $u(n)$ avant $u_n$, « coefficient directeur », « taux d’évolution ».
+
 Python : blocs ```` ```python ```` courts, testés (le script de vérification du chapitre exécute ou rejoue les programmes du cours).
 
 ## 4. Figures
@@ -110,9 +125,22 @@ Proposition détaillée : `PLAN-APPLI.md`. Principes : PWA Vite + TypeScript hor
 - **Origine partagée** `narkotine.github.io` avec `compendium-maths` et `compendium-primaire` : toutes les clés `localStorage` / `sessionStorage` préfixées **`compendium-seconde.`**, `cacheId` Workbox **`compendium-seconde`** (caches `compendium-seconde-*`), portée du service worker limitée à `/compendium-seconde/`, aucune suppression de caches qui ne portent pas ce préfixe.
 - Aujourd’hui : aucun dépôt distant, aucun push, aucune publication.
 
-## 8. Décisions ouvertes
+## 8. Décisions
 
-Voir le rapport du 20 octobre 2026 et `PLAN-APPLI.md` (§ « Questions »). En attente de Nguhma : validation du style du pilote, place des chapitres transversaux et des automatismes, quantité de ★★★, volume d’exercices, Python, notations (intervalles, vecteurs).
+**Validé par Nguhma (20/10/2026)** : programme 2026 ; suggestions 1 à 6 de `COMPARAISON-PREMIERE.md` (Rituels orientés épreuve anticipée, fiche Automatismes, chapitres 11/13/15/16 réutilisables en première, passerelles ★★★ hors programme, chapitres 17 et 18 à part, exigence de rédaction). **Refusé pour l’instant** : projet « première ».
+
+**Choix par défaut** (questions restées sans réponse ; modifiables à tout moment) :
+
+| Question | Choix par défaut |
+|---|---|
+| Notation des intervalles | $\left[a\,;b\right]$ (point-virgule) |
+| Coordonnées | $(x\,;y)$ |
+| Volume d’exercices écrits | environ 45 par chapitre, 100 % corrigés |
+| Python dans l’appli | sans exécution : prédire, compléter, suivre les variables (programmes vérifiés au build) |
+| Nom de l’appli | « Maths Seconde » (provisoire) |
+| Démonstrations | rédigées en entier dans le cours, repliables dans l’appli |
+
+Encore ouverts : validation du style et de la longueur du pilote, renvois vers le compendium collège, découpage en 18 chapitres, couleur et icône.
 
 ## 9. Journal
 
@@ -120,3 +148,5 @@ Voir le rapport du 20 octobre 2026 et `PLAN-APPLI.md` (§ « Questions »). En a
 |---|---|---|---|
 | 20/10/2026 | — | — | Étude du compendium collège (contenu, build, appli) et du primaire ; programme 2026 récupéré (BO n° 14) ; plan en 18 chapitres ; squelette (dossiers, `PLAN.md`), outils (`kit.py`, vérificateur, aperçu, `svg2png.sh`) |
 | 20/10/2026 | 01 Nombres réels et intervalles | v0.1 (pilote) | Rédigé au standard collège v0.3 : 9 exemples guidés, 2 démonstrations du programme, algorithme de balayage en Python, 8 SVG (`gen-01-nombres-reels.py`), 47 exercices (30 types + 17 atypiques), 100 % corrigés ; `check-01.py` : 59 résultats, 0 faux ; `verifier-chapitre.js` : OK ; aperçu sans erreur KaTeX |
+| 20/10/2026 | — | — | Comparaison avec les programmes de 1re hors spécialité (`COMPARAISON-PREMIERE.md`, textes dans `sources/`) |
+| 20/10/2026 | 19 Fiche Automatismes, 01, plans | v0.1 ; 01 v0.1.1 | Suggestions 1 à 6 intégrées : fiche Automatismes rédigée (30 automatismes, 51 questions flash, `check-19.py` 0 faux) ; mode Rituels (`PLAN-APPLI.md` § 2 bis) ; `plans-chapitres.py` : passerelles ★★★ (03, 05, 09, 11, 12, 13, 14, 16, 18), « Et en première ? » et lisibilité autonome (11, 13, 15, 16), § 5 diagrammes croisés (15) ; pilote 01 : « Et en première ? » au § 11 ; choix par défaut notés (§ 8) |

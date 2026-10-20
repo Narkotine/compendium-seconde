@@ -23,3 +23,10 @@
 ## Pour aller plus loin (★★★, facultatif)
 
 - √(a + b) ≤ √a + √b (★★★)
+
+## Passerelles vers la première (★★★, facultatif, HORS PROGRAMME DE SECONDE)
+
+> Chaque passerelle est signalée dans le cours par « *Passerelle vers la première (★★★, hors programme de seconde).* », placée après le cœur du chapitre, sans exercice obligatoire (au plus 2 exercices ★★★ dans la série atypique).
+
+- Seuil sur les puissances (algorithme du programme) relu comme une suite : u(n) = u(0) × qⁿ, premier n tel que u(n) dépasse un seuil (boucle while) — 1re : suites géométriques
+- Écrire √a = a^(1/2) et constater que les règles des puissances restent vraies (a^(1/2) × a^(1/2) = a) — 1re générale : exposant 1/n, fonctions exponentielles

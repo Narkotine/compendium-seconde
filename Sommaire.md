@@ -20,3 +20,6 @@ Compendium de maths — seconde générale et technologique (programme BO n° 14
 16. Probabilités et probabilités conditionnelles *(à rédiger)*
 17. Vocabulaire ensembliste et logique *(à rédiger)*
 18. Algorithmique et programmation en Python *(à rédiger)*
+19. [Fiche Automatismes](19-fiche-automatismes/cours-et-exercices.md) *(fiche transversale, rédigée)*
+
+Voir aussi : [comparaison avec les programmes de première hors spécialité](COMPARAISON-PREMIERE.md).

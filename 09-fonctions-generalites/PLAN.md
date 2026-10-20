@@ -23,3 +23,9 @@
 ## Pour aller plus loin (★★★, facultatif)
 
 - (rien de prévu)
+
+## Passerelles vers la première (★★★, facultatif, HORS PROGRAMME DE SECONDE)
+
+> Chaque passerelle est signalée dans le cours par « *Passerelle vers la première (★★★, hors programme de seconde).* », placée après le cœur du chapitre, sans exercice obligatoire (au plus 2 exercices ★★★ dans la série atypique).
+
+- Un phénomène discret noté u(n) (motif en T, épargne de r € par mois) : tableau (n ; u(n)), nuage de points, passage de u(n) à u(n + 1) en ajoutant r — 1re : suites arithmétiques ; notation u(n) avant uₙ, comme le demandent les programmes de 1re

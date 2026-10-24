@@ -1,0 +1,33 @@
+{
+  "name": "compendium-seconde-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Maths Seconde : PWA hors ligne de lecture du compendium de maths de seconde (programme BO n° 14 du 2 avril 2026)",
+  "scripts": {
+    "content": "node scripts/build-content.mjs",
+    "icons": "node scripts/make-icons.mjs",
+    "dev": "npm run content && vite",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run content && tsc --noEmit && vite build && node scripts/check-dist.mjs",
+    "check": "node scripts/check-dist.mjs",
+    "preview": "vite preview --port 4175 --strictPort",
+    "test": "node scripts/check-dist.mjs && node scripts/e2e.mjs",
+    "test:e2e": "node scripts/e2e.mjs",
+    "captures": "node scripts/captures.mjs",
+    "sync-cours": "bash scripts/sync-cours.sh",
+    "publish:gh": "bash scripts/publish-gh.sh"
+  },
+  "devDependencies": {
+    "@fontsource/atkinson-hyperlegible-next": "^5.3.0",
+    "katex": "^0.19.1",
+    "linkedom": "^0.18.14",
+    "marked": "^18.1.1",
+    "puppeteer-core": "^24.43.1",
+    "sharp": "^0.35.5",
+    "typescript": "~5.9.3",
+    "vite": "^8.3.5",
+    "vite-plugin-pwa": "^2.0.0",
+    "workbox-window": "^7.4.1"
+  }
+}

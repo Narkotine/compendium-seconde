@@ -1,0 +1,38 @@
+{
+  "appName": "Maths Seconde",
+  "groups": [
+    { "id": "nombres", "title": "Nombres et calculs", "hue": 210,
+      "chapters": ["01-nombres-reels-intervalles", "02-arithmetique", "03-puissances-racines", "04-calcul-litteral", "05-inegalites-equations-inequations"] },
+    { "id": "geometrie", "title": "Géométrie", "hue": 160,
+      "chapters": ["06-vecteurs", "07-vecteurs-coordonnees", "08-droites-du-plan"] },
+    { "id": "fonctions", "title": "Fonctions", "hue": 280,
+      "chapters": ["09-fonctions-generalites", "10-variations-extremums", "11-fonctions-affines-signes", "12-fonctions-de-reference"] },
+    { "id": "stats", "title": "Statistiques et probabilités", "hue": 25,
+      "chapters": ["13-information-chiffree", "14-statistiques-descriptives", "15-tableaux-croises", "16-probabilites-conditionnelles"] },
+    { "id": "algo", "title": "Algorithmique et logique", "hue": 330,
+      "chapters": ["17-ensembles-et-logique", "18-algorithmique-python"] },
+    { "id": "automatismes", "title": "Automatismes", "hue": 45,
+      "chapters": ["19-fiche-automatismes"] }
+  ],
+  "chapters": {
+    "01-nombres-reels-intervalles": { "short": "Réels et intervalles" },
+    "02-arithmetique": { "short": "Arithmétique" },
+    "03-puissances-racines": { "short": "Puissances et racines" },
+    "04-calcul-litteral": { "short": "Calcul littéral" },
+    "05-inegalites-equations-inequations": { "short": "Équations et inéquations" },
+    "06-vecteurs": { "short": "Vecteurs" },
+    "07-vecteurs-coordonnees": { "short": "Coordonnées" },
+    "08-droites-du-plan": { "short": "Droites du plan" },
+    "09-fonctions-generalites": { "short": "Fonctions : généralités" },
+    "10-variations-extremums": { "short": "Variations et extremums" },
+    "11-fonctions-affines-signes": { "short": "Fonctions affines, signes" },
+    "12-fonctions-de-reference": { "short": "Fonctions de référence" },
+    "13-information-chiffree": { "short": "Proportions et évolutions" },
+    "14-statistiques-descriptives": { "short": "Statistiques" },
+    "15-tableaux-croises": { "short": "Tableaux croisés" },
+    "16-probabilites-conditionnelles": { "short": "Probabilités conditionnelles" },
+    "17-ensembles-et-logique": { "short": "Ensembles et logique" },
+    "18-algorithmique-python": { "short": "Python" },
+    "19-fiche-automatismes": { "short": "Fiche Automatismes" }
+  }
+}

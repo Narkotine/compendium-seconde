@@ -8,9 +8,9 @@ import puppeteer from 'puppeteer-core';
 import { serve } from './serve-dist.mjs';
 
 const CHROME = process.env.CHROME || '/usr/bin/google-chrome';
-let BASE = process.argv[2], srv = null, NEIGHBOUR;
-if (!BASE) { const s = await serve(); srv = s.srv; BASE = `${s.origin}/compendium-seconde/`; NEIGHBOUR = `${s.origin}/voisin/`; }
-else NEIGHBOUR = new URL('/compendium-maths/', BASE).href;
+let BASE = process.argv[2], srv = null, NEIGHBOURS;
+if (!BASE) { const s = await serve(); srv = s.srv; BASE = `${s.origin}/compendium-seconde/`; NEIGHBOURS = [`${s.origin}/voisin/`]; }
+else NEIGHBOURS = [new URL('/', BASE).href, new URL('/compendium-maths/', BASE).href];
 const SCOPE = BASE;
 
 let fails = 0, n = 0;
@@ -120,11 +120,19 @@ try {
   t(sw.scope === SCOPE && sw.regs.every((s) => s === SCOPE), 'service worker : portée = ' + SCOPE, JSON.stringify(sw.regs));
   t(sw.caches.length > 0 && sw.caches.every((k) => k.startsWith('compendium-seconde')), 'caches préfixés compendium-seconde', sw.caches.join(','));
   await sleep(1500);
-  const p2 = await ctx.newPage();
-  const resp = await p2.goto(NEIGHBOUR, { waitUntil: 'domcontentloaded' });
-  const nb = await p2.evaluate(() => ({ controlled: !!navigator.serviceWorker?.controller, title: document.title, app: !!document.getElementById('app') && document.title === 'Maths Seconde' }));
-  t(!nb.controlled && !nb.app, `site voisin (${NEIGHBOUR}) : non contrôlé par notre service worker`, JSON.stringify(nb) + ' ' + resp?.status());
-  await p2.close();
+  for (const NB of NEIGHBOURS) {
+    const p2 = await ctx.newPage();
+    const resp = await p2.goto(NB, { waitUntil: 'networkidle0' });
+    // la page voisine peut avoir son propre service worker : on vérifie que ce n'est jamais le nôtre
+    const nb = await p2.evaluate(async () => {
+      const ctl = navigator.serviceWorker?.controller?.scriptURL || '';
+      const reg = await navigator.serviceWorker?.getRegistration();
+      return { ctl, regScope: reg?.scope || '', title: document.title };
+    });
+    const ours = (u) => u.includes('/compendium-seconde/');
+    t(!ours(nb.ctl) && !ours(nb.regScope) && nb.title !== 'Maths Seconde' && (resp?.status() ?? 0) < 400, `site voisin ${NB} : intact, pas notre service worker`, JSON.stringify(nb) + ' ' + resp?.status());
+    await p2.close();
+  }
 
   // 9. Hors ligne
   await p.reload({ waitUntil: 'networkidle0' });

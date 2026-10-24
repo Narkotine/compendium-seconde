@@ -12,7 +12,7 @@ if [ -z "${SKIP_TESTS:-}" ]; then npm run test:e2e; fi
 VERSION=$(node -p "require('./package.json').version")
 SRC=$(git rev-parse --short HEAD)
 TMP=$(mktemp -d)
-trap 'git worktree remove --force "$TMP" 2>/dev/null || true; rm -rf "$TMP"' EXIT
+trap 'git worktree remove --force "$TMP" 2>/dev/null || true; rm -rf "$TMP"; git branch -D "gh-pages-init-$$" >/dev/null 2>&1 || true' EXIT
 CRED0=(); command -v gh >/dev/null && CRED0=(-c credential.helper= -c "credential.helper=!$(command -v gh) auth git-credential")
 if git "${CRED0[@]}" ls-remote --exit-code --heads "$REMOTE" gh-pages >/dev/null 2>&1; then
   git "${CRED0[@]}" fetch -q "$REMOTE" gh-pages
@@ -20,7 +20,7 @@ if git "${CRED0[@]}" ls-remote --exit-code --heads "$REMOTE" gh-pages >/dev/null
 else
   echo "Première publication : création de la branche gh-pages (orpheline)."
   git worktree add -q --detach "$TMP"
-  git -C "$TMP" checkout -q --orphan gh-pages
+  git -C "$TMP" checkout -q --orphan "gh-pages-init-$$"   # branche locale temporaire, poussée vers gh-pages
   git -C "$TMP" rm -rfq . >/dev/null 2>&1 || true
 fi
 find "$TMP" -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
